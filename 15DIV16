@@ -1,0 +1,9 @@
+%15/6
+MOV AX,'15'
+ MOV BL,'6'
+ SUBAX,3030H
+ SUBBL,30H
+ AAD
+ DIV BL
+ HLT
+ ; halt!
