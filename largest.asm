@@ -12,3 +12,47 @@ L3: DEC CL
 JNZ L1
 MOV [100AH],AL
 HLT
+
+
+%largest
+MOV CL, 0AH;
+LEA SI, [1000H];
+MOV AL, [SI];
+L1: INC SI;
+    MOV BL,[SI];
+    CMP AL,BL;
+    JC L2;
+    JMP L3;
+    L2: MOV AL,BL;
+    L3: DEC CL;
+    JNZ L1;
+    
+HLT           ; halt!
+
+//8 BIT
+MOVCL,0AH
+ LEASI, [1000H]
+ MOVAL,[SI]
+ L1: INC SI
+ MOVBL,[SI]
+ CMPAL,BL
+ JC L2
+ JMP L3
+ L2: MOVAL,BL
+ L3: DEC CL
+ JNZ L1
+ HLT
+
+//16 BIT
+MOVCL,05H
+ LEASI, [1000H]
+ MOVAL,[SI]
+ L1: INC SI
+ MOVBX,[SI]
+ CMPAX,BX
+ JC L2
+ JMP L3
+ L2: MOVAX,BX
+ L3: DEC CL
+JNZ L1
+ HLT
